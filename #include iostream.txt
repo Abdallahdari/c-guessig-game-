@@ -1,0 +1,218 @@
+#include <iostream>
+#include <cstdlib> // needed for rand() and srand()
+#include <ctime> // needed for time()
+
+using namespace std;
+
+void menue(){
+cout<<"welcome to the guess game: "<<endl;
+cout<<"__________________________"<<endl;
+cout << "1. Guess the number" << endl;
+cout << "2. Guess the alphabet" << endl;
+cout << "3. Show high score" << endl;
+cout << "4. Display the credits" << endl;
+cout << "5. Exit" << endl;
+
+
+
+
+}
+void numbers(){
+int secret_number;
+int guess;
+int number_oftries=0;
+int maxnumber;
+cout << "Please select a difficulty level:" << endl;
+            cout << "1. Easy (7 tries, 1-50)" << endl;
+            cout << "2. Medium (5 tries, 1-70)" << endl;
+            cout << "3. Hard (3 tries, 1-90)" << endl;
+
+
+int highscore=0;
+int dificultlevel;
+cin>>dificultlevel;
+
+switch (dificultlevel)
+{
+
+
+case 1:
+maxnumber=50;
+number_oftries=10;
+    break;
+    case 2:
+    maxnumber=70;
+    number_oftries=5;
+    break;
+    case 3:
+    maxnumber=100;
+    number_oftries=3;
+
+
+default:
+
+cout<<"invaild input:";
+number_oftries=10;
+    break;
+}
+secret_number=rand()%maxnumber+1;
+for (int i =1; i < number_oftries; i++)
+{
+    cout<<"#guess"<<i<<":";
+    cin>>guess;
+    if(guess==secret_number){
+cout<<"You won:"<<secret_number<<"."<<endl;
+ 
+                    if (i <= highscore || highscore == 0) {
+                        highscore = i;
+                        cout << "New high score: " << highscore << " tries." << endl;
+
+
+
+
+    }
+    break;
+}
+else if (guess>secret_number)
+{
+    cout<<"Too high try again:"<<endl;
+
+}
+else{
+    cout<<"Too low try again:"<<endl;
+}
+
+if (i==number_oftries)
+{
+    cout<<"you lost:"<<"the secretnumber was:"<<secret_number<<endl;
+}
+
+
+
+}
+}
+void alphabet(){
+char secretchar;
+
+int highscore=0;
+
+char guess;
+int number_of_tries;
+
+cout << "Please select a difficulty level:" << endl;
+            cout << "1. Easy (7 tries, 1-50)" << endl;
+            cout << "2. Medium (5 tries, 1-70)" << endl;
+            cout << "3. Hard (3 tries, 1-90)" << endl;
+
+
+
+int dificultlevel;
+cin>>dificultlevel;
+
+
+switch (dificultlevel)
+{
+case 1:
+number_of_tries=7;
+
+
+
+    break;
+case 2:
+number_of_tries=5;
+break;
+
+
+
+case 3:
+number_of_tries=3;
+
+
+
+default:
+    break;
+}
+
+   secretchar='a'+rand ( ) %26;
+for (int i = 1; i < number_of_tries; i++)
+{
+    cout<<"#Guess"<<i<<":";
+    cin>>guess;
+    if (guess==secretchar)
+    {
+        cout<<"YOu won"<<"."<<endl;
+
+        if (i < highscore || highscore == 0) {
+                             highscore = i;
+                             cout<<"New high score: "<<highscore<< " tries."<<endl;
+                         }
+                         break;
+
+
+    }
+    else{
+        cout<<"Your guess was incorect try gain: "<<endl;
+    }
+
+    if (i==number_of_tries)
+    {
+        cout<<"You out of chance the secret char was:"<<secretchar<<endl;
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+    
+int main(){
+    menue();
+    int choice;
+cout<<"please choose an option: ";
+cin>>choice;
+if (choice==1)
+{
+    numbers();
+}
+
+else if (choice==2)
+{
+alphabet("legend");
+}
+else if (choice==3){
+
+
+
+
+
+
+}
+
+}
+
+
+
+ 
+
+
+
+
